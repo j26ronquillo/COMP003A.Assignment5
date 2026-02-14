@@ -21,6 +21,14 @@
 
             int finalAnswer = CalculatedValue(userNumber);
             Console.WriteLine($"\nCalculated Result: {finalAnswer}");
+
+            if (finalAnswer <= 10) { Console.WriteLine("The result is greater than or equal to 10!"); }
+            else { Console.WriteLine("The result is 9 or less!"); }
+
+            Console.WriteLine("Would you like to run the program again? (y/n)");
+            string loopUser = Console.ReadLine();
+
+            if (loopUser == "n") { loopRun = false; }
         }
     }
 }
