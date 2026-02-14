@@ -3,7 +3,7 @@
     internal class Program
     {
         static void DisplayIntroduction()
-        { Console.WriteLine("Welcome to the Program Organizer!\n"); }
+        { Console.WriteLine("Welcome to the Program Organizer! Your value will be doubled."); }
 
         static int CalculatedValue(int doubledNumber)
         { int finalAnswer = doubledNumber * 2;
@@ -13,22 +13,26 @@
         {
             DisplayIntroduction();
 
+            bool loopRun = true;
+            while (loopRun)
+            {
+                Console.Write("\nEnter your name: ");
+                string userName = Console.ReadLine();
+                Console.Write("Enter a number: ");
+                int userNumber = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter your name: ");
-            string userName = Console.ReadLine();
-            Console.Write("Enter a number: ");
-            int userNumber = int.Parse(Console.ReadLine());
+                int finalAnswer = CalculatedValue(userNumber);
+                Console.WriteLine($"\nCalculated Result: {finalAnswer}");
 
-            int finalAnswer = CalculatedValue(userNumber);
-            Console.WriteLine($"\nCalculated Result: {finalAnswer}");
+                if (finalAnswer >= 10) { Console.WriteLine("The result is greater than or equal to 10!\n"); }
+                else { Console.WriteLine("The result is 9 or less!\n"); }
 
-            if (finalAnswer <= 10) { Console.WriteLine("The result is greater than or equal to 10!"); }
-            else { Console.WriteLine("The result is 9 or less!"); }
+                Console.Write("Would you like to run the program again? (y/n)");
+                string loopUser = Console.ReadLine();
 
-            Console.WriteLine("Would you like to run the program again? (y/n)");
-            string loopUser = Console.ReadLine();
-
-            if (loopUser == "n") { loopRun = false; }
+                if (loopUser == "n") { loopRun = false; }
+            }
+            Console.WriteLine("\nProgram Ended.");
         }
     }
 }
